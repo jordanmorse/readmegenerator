@@ -1,27 +1,10 @@
-// array of questions for user
-//const questions = [
-
-//];
-
-// function to write README file
-//function writeToFile(fileName, data) {
-//}
-
-// function to initialize program
-//function init() {
-
-//}
-
-// function call to initialize program
-//init();
-
 const inquirer = require("inquirer")
 const fs = require("fs")
 const path = require("path")
 const generateMarkdown = require("./utils/generateMarkdown.js")
 
 // array of questions for user
-const questions = [
+const options = [
 {
     type: "input",
     name: "title",
@@ -77,8 +60,8 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 function init() {
-    inquirer.prompt(questions) // .then function
-    // call the function writeToFile using the data that we pass (ie the inquirer responses)
+    inquirer.prompt(options) 
+
     .then(answers => {
         writeToFile("README.md", generateMarkdown(answers))
     })
